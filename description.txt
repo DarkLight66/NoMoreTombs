@@ -1,2 +1,8 @@
 ﻿This mod stops tombstones from appearing when you die.
 Based on the "Disable Gravestones" option from HERO's Mod.
+
+Changelog:
+
+1.0.1:
+* Added config file
+* Added no death text option, defaults to false.

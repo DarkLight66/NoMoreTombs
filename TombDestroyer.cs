@@ -7,6 +7,11 @@ namespace NoMoreTombs
 {
     public class TombDestroyer : GlobalProjectile
     {
+        public override bool Autoload(ref string name)
+        {
+            return TombsConfig.NoTombstones;
+        }
+
         public static readonly int[] tombProjectiles = new int[] { ProjectileID.Tombstone, ProjectileID.GraveMarker, ProjectileID.CrossGraveMarker, ProjectileID.Headstone, ProjectileID.Gravestone, ProjectileID.Obelisk, ProjectileID.RichGravestone1, ProjectileID.RichGravestone2, ProjectileID.RichGravestone3, ProjectileID.RichGravestone4, ProjectileID.RichGravestone5 };
 
         public override bool PreAI(Projectile projectile)

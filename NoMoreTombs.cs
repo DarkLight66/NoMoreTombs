@@ -6,10 +6,7 @@ namespace NoMoreTombs
     {
         public NoMoreTombs()
         {
-            Properties = new ModProperties()
-            {
-                Autoload = true
-            };
+            TombsConfig.Load();
         }
     }
 }

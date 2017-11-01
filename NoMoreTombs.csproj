@@ -51,6 +51,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeadPlayer.cs" />
+    <Compile Include="TombsConfig.cs" />
     <Compile Include="NoMoreTombs.cs" />
     <Compile Include="TombDestroyer.cs" />
   </ItemGroup>

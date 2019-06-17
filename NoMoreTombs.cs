@@ -4,9 +4,7 @@ namespace NoMoreTombs
 {
     class NoMoreTombs : Mod
     {
-        public NoMoreTombs()
-        {
-            TombsConfig.Load();
-        }
-    }
+		internal static Configuration Config;
+		public override void Unload() => Config = null;
+	}
 }

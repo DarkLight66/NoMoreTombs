@@ -2,7 +2,10 @@
 Based on the "Disable Gravestones" option from HERO's Mod.
 
 Changelog:
-
+1.0.2:
+* Updated to tModLoader 0.11
+* Updated config system to use ModConfig
+* Now a client-side mod
 1.0.1:
 * Added config file
 * Added no death text option, defaults to false.

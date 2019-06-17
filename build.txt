@@ -1,12 +1,7 @@
 ﻿displayName=No More Tombs
 author=DarkLight
-version=1.0.1
-dllReferences=
-modReferences=
-noCompile=false
-homepage=
+version=1.0.2
 hideCode=true
 hideResources=true
-includeSource=false
-buildIgnore= .vs\*, Properties\*, *.csproj, *.user, obj\*, bin\*, *.config, .git\*, LICENSE, .gitignore
 includePDB=true
+side = Client

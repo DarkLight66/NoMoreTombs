@@ -1,6 +1,6 @@
 ﻿displayName=No More Tombs
 author=DarkLight
-version=1.0.2
+version=1.1.0
 hideCode=true
 hideResources=true
 includePDB=true

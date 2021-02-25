@@ -2,10 +2,14 @@
 Based on the "Disable Gravestones" option from HERO's Mod.
 
 Changelog:
+1.1.0:
+* Updated to tModLoader 0.11.8.1
+* Added config option to allow dropping tombs from town NPC deaths, should work exactly like in 1.4 Hardcore mode
+* Changed how tombs are prevented from dropping on player death so that mods that use the tombstone projectile aren't affected
 1.0.2:
 * Updated to tModLoader 0.11
 * Updated config system to use ModConfig
 * Now a client-side mod
 1.0.1:
 * Added config file
-* Added no death text option, defaults to false.
+* Added no death text option, defaults to false

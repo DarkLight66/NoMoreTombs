@@ -3,5 +3,6 @@ author=DarkLight
 version=1.1.0
 hideCode=true
 hideResources=true
+homepage = https://forums.terraria.org/index.php?threads/no-more-tombs.103529/
 includePDB=true
 side = Client

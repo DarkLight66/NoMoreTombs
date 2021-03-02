@@ -5,7 +5,7 @@ namespace NoMoreTombs
 {
 	public class Configuration : ModConfig
 	{
-		public override ConfigScope Mode => ConfigScope.ClientSide;
+		public override ConfigScope Mode => ConfigScope.ServerSide;
 
 		[DefaultValue(true)]
 		[Label("Disable Tombstones")]
@@ -48,6 +48,12 @@ namespace NoMoreTombs
 			{
 				mod.Logger.Info((TownNPCTombs ? "Enabled" : "Disabled") + " Town NPC Tombs");
 			}
+		}
+		
+		public override bool AcceptClientChanges(ModConfig pendingConfig, int whoAmI, ref string message)
+		{
+			message = "Sorry, config settings can only be changed by the server owner.";
+			return false;
 		}
 	}
 }

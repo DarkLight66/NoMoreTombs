@@ -14,7 +14,7 @@ namespace NoMoreTombs
 		[DefaultValue(true)]
 		[Label("Disable Tombstones")]
 		[Tooltip("Prevents tombstones from being spawned when you die\nDefaults to true")]
-        public bool NoTombstones;
+		public bool NoTombstones;
 
 		[DefaultValue(false)]
 		[Label("Disable Death Message")]
@@ -42,17 +42,20 @@ namespace NoMoreTombs
 			if (OldNoTombstones != NoTombstones)
 			{
 				mod.Logger.Info((NoTombstones ? "Disabled" : "Enabled") + " Tombstones");
+				OldNoTombstones = NoTombstones;
 			}
 			if (OldNoDeathMessage != NoDeathMessage)
 			{
 				mod.Logger.Info((NoDeathMessage ? "Disabled" : "Enabled") + " Death Messages");
+				OldNoDeathMessage = NoDeathMessage;
 			}
 			if (OldTownNPCTombs != TownNPCTombs)
 			{
 				mod.Logger.Info((TownNPCTombs ? "Enabled" : "Disabled") + " Town NPC Tombs");
+				OldTownNPCTombs = TownNPCTombs;
 			}
 		}
-		
+
 		public override bool AcceptClientChanges(ModConfig pendingConfig, int whoAmI, ref string message)
 		{
 			if (!IsPlayerLocalServerOwner(whoAmI))

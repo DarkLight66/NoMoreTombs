@@ -2,6 +2,9 @@
 Based on the "Disable Gravestones" option from HERO's Mod.
 
 Changelog:
+1.2.0:
+* Updated to tModLoader 0.12 (1.0?)
+* Added config option to allow disabling dropping tombs from town NPC deaths while the player is in hardcore.
 1.1.2:
 * Allow players who are the host in host & play to change config settings.
 * Fix no death text config option messing with some mods which modify player death behavior.

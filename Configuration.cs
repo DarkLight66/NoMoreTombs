@@ -14,7 +14,7 @@ namespace NoMoreTombs
 		[DefaultValue(true)]
 		[Label("Disable Tombstones")]
 		[Tooltip("Prevents tombstones from being spawned when you die\nDefaults to true")]
-        public bool NoTombstones;
+		public bool NoTombstones;
 
 		[DefaultValue(false)]
 		[Label("Disable Death Message")]
@@ -23,36 +23,51 @@ namespace NoMoreTombs
 
 		[DefaultValue(false)]
 		[Label("Enable Tombs From Town NPC Deaths")]
-		[Tooltip("Allows town NPCs to drop tombstones when they die\nDefaults to false")]
+		[Tooltip("Allows town NPCs to drop tombstones when they die while the player is on any difficulty\nDefaults to false")]
 		public bool TownNPCTombs;
+
+		[DefaultValue(false)]
+		[Label("Disable Tombs From Town NPC Deaths in Hardcore")]
+		[Tooltip("Disables town NPCs dropping tombstones when they die while the player is on hardcore mode\nTakes precedense over the previous setting\nDefaults to false")]
+		public bool NoTownNPCTombs;
 
 		private bool OldNoTombstones;
 		private bool OldNoDeathMessage;
 		private bool OldTownNPCTombs;
+		private bool OldNoTownNPCTombs;
 
 		public override void OnLoaded()
 		{
 			OldNoTombstones = NoTombstones;
 			OldNoDeathMessage = NoDeathMessage;
 			OldTownNPCTombs = TownNPCTombs;
+			OldNoTownNPCTombs = NoTownNPCTombs;
 		}
 
 		public override void OnChanged()
 		{
 			if (OldNoTombstones != NoTombstones)
 			{
-				mod.Logger.Info((NoTombstones ? "Disabled" : "Enabled") + " Tombstones");
+				Mod.Logger.Info((NoTombstones ? "Disabled" : "Enabled") + " Tombstones");
+				OldNoTombstones = NoTombstones;
 			}
 			if (OldNoDeathMessage != NoDeathMessage)
 			{
-				mod.Logger.Info((NoDeathMessage ? "Disabled" : "Enabled") + " Death Messages");
+				Mod.Logger.Info((NoDeathMessage ? "Disabled" : "Enabled") + " Death Messages");
+				OldNoDeathMessage = NoDeathMessage;
 			}
 			if (OldTownNPCTombs != TownNPCTombs)
 			{
-				mod.Logger.Info((TownNPCTombs ? "Enabled" : "Disabled") + " Town NPC Tombs");
+				Mod.Logger.Info((TownNPCTombs ? "Enabled" : "Disabled") + " Town NPC Tombs");
+				OldTownNPCTombs = TownNPCTombs;
+			}
+			if (OldNoTownNPCTombs != NoTownNPCTombs)
+			{
+				Mod.Logger.Info((NoTownNPCTombs ? "Disabled" : "Enabled") + " Town NPC Tombs on Hardcore");
+				OldNoTownNPCTombs = NoTownNPCTombs;
 			}
 		}
-		
+
 		public override bool AcceptClientChanges(ModConfig pendingConfig, int whoAmI, ref string message)
 		{
 			if (!IsPlayerLocalServerOwner(whoAmI))

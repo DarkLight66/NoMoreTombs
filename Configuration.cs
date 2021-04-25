@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel;
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader.Config;
 
 namespace NoMoreTombs
@@ -6,6 +8,8 @@ namespace NoMoreTombs
 	public class Configuration : ModConfig
 	{
 		public override ConfigScope Mode => ConfigScope.ServerSide;
+
+		public static Configuration Instance;
 
 		[DefaultValue(true)]
 		[Label("Disable Tombstones")]
@@ -31,7 +35,6 @@ namespace NoMoreTombs
 			OldNoTombstones = NoTombstones;
 			OldNoDeathMessage = NoDeathMessage;
 			OldTownNPCTombs = TownNPCTombs;
-			NoMoreTombs.Config = this;
 		}
 
 		public override void OnChanged()
@@ -52,7 +55,29 @@ namespace NoMoreTombs
 		
 		public override bool AcceptClientChanges(ModConfig pendingConfig, int whoAmI, ref string message)
 		{
-			message = "Sorry, config settings can only be changed by the server owner.";
+			if (!IsPlayerLocalServerOwner(whoAmI))
+			{
+				message = "Sorry, config settings can only be changed by the server owner.";
+				return false;
+			}
+			return true;
+		}
+
+		public static bool IsPlayerLocalServerOwner(int whoAmI)
+		{
+			if (Main.netMode == NetmodeID.MultiplayerClient)
+			{
+				return Netplay.Connection.Socket.GetRemoteAddress().IsLocalHost();
+			}
+
+			for (int i = 0; i < Main.maxPlayers; i++)
+			{
+				RemoteClient client = Netplay.Clients[i];
+				if (client.State == 10 && i == whoAmI && client.Socket.GetRemoteAddress().IsLocalHost())
+				{
+					return true;
+				}
+			}
 			return false;
 		}
 	}

@@ -2,6 +2,9 @@
 Based on the "Disable Gravestones" option from HERO's Mod.
 
 Changelog:
+1.1.2:
+* Allow players who are the host in host & play to change config settings.
+* Fix no death text config option messing with some mods which modify player death behavior.
 1.1.1:
 * Changed the mod back to be both sided, since client side mods aren't loaded by servers (oops).
 * Changed the config to be server sided (should work the same in single player), and made the settings only changeable by the server in MP.

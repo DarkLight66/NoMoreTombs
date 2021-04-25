@@ -1,7 +1,8 @@
 ﻿displayName=No More Tombs
 author=DarkLight
-version=1.1.1
+version=1.1.2
 hideCode=true
 hideResources=true
 homepage=https://forums.terraria.org/index.php?threads/no-more-tombs.103529/
 includeSource=false
+buildIgnore = Properties\*, *.sln, *.user, *.config, README.md, LICENSE
